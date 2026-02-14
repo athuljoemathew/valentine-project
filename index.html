@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Operation: Say Yes ❤️</title>
-
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHCYMJW2K1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QHCYMJW2K1');
-</script>
-
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -64,6 +53,7 @@
 
         .bear-gif { width: 180px; height: auto; border-radius: 15px; margin-bottom: 10px; z-index: 5; }
 
+        /* No Button Feedback */
         .no-msg {
             position: fixed; color: #ff3366; font-weight: bold; font-size: 0.9rem;
             background: white; padding: 5px 12px; border-radius: 10px;
@@ -82,89 +72,203 @@
     </style>
 </head>
 <body>
-    <!-- rest of your file stays EXACTLY the same -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Operation: Say Yes ❤️</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PASTEYOURID"></script>
+    <div id="heart-container"></div>
+
+    <div class="container">
+        <div class="page active" id="p1">
+            <img src="gifs/bear-entry.gif" class="bear-gif">
+            <h1>lachuvaa! Wait for it... ❤️</h1>
+            <button class="btn" onclick="next('p2')">Okay fine.</button>
+        </div>
+
+        <div class="page" id="p2">
+            <img src="gifs/bear-choice.gif" class="bear-gif">
+            <h1>lachu have a choice.</h1>
+            <button class="btn" onclick="next('p-mood')">Let's see what you made.</button>
+            <button class="btn" onclick="next('p-mood')">Why did you even make this?</button>
+        </div>
+
+        <div class="page" id="p-mood">
+            <img src="gifs/bear-mood.gif" class="bear-gif">
+            <h1>Mood Check 💗</h1>
+            <button class="btn" onclick="next('p-angry')">Angry 😤</button>
+            <button class="btn" onclick="next('p-happy')">Happy 😊</button>
+        </div>
+
+        <div class="page" id="p-angry">
+            <div style="background:white; padding:5px 15px; border-radius:20px; color:var(--dark-pink); font-weight:bold; margin-bottom:10px;">ATHUL</div>
+            <img src="gifs/bear-angry.gif" id="angryBear" class="bear-gif" onclick="beat(event)">
+            <h1>Beat me as much as you want.</h1>
+            <p id="hit-count">Hits: 0</p>
+            <button class="btn" id="cont-angry" style="display:none;" onclick="next('p-ouch-msg')">Continue? 😵‍💫</button>
+        </div>
+
+        <div class="page" id="p-ouch-msg">
+            <img src="gifs/bear-angry.gif" class="bear-gif" style="filter: grayscale(0.5);">
+            <div class="big-msg">UR STRONG!<br>THAT HURT ouch 😭</div>
+            <button class="btn" onclick="next('p-happy')">Sorry (or not) ❤️</button>
+        </div>
+
+        <div class="page" id="p-happy">
+            <img src="gifs/bear-entry.gif" class="bear-gif">
+            <h1>For You... 🌹</h1>
+            <button class="btn" onclick="next('p-memory')">Continue ❤️</button>
+        </div>
+
+        <div class="page" id="p-memory">
+            <img src="gifs/bear-choice.gif" class="bear-gif">
+            <p>Do you remember that day at the <b>stone bench</b>?</p>
+            <p>That's when I started looking for you every day.</p>
+            <button class="btn" onclick="next('p-letter')">Next</button>
+        </div>
+
+        <div class="page" id="p-letter">
+            <p style="font-size: 0.8rem; font-style: italic; color: #cc0066; margin-bottom: 5px;">"i did forgotten this it a digital one but soon"</p>
+            <div class="paper">
+                <div class="letter-text">
+lachu,
+That day… you were sitting on the stone bench, laughing freely with your friends. No tension. No weight on your face. Just pure you.
+
+I don’t know why, but after that day… I started searching for that smile every single day. Not in class. Not in chats. In you.
+
+Somehow, your happiness slowly became something I look for without even realizing i remembers every moments with u that drama edit cheaose trip sportsday that tea =brake bus back home studing togerther chatting annoying u fighting with u beong totally cringe beating eachother running around the school that tag game 
+                    everything i sill carry those in my heart almost we can say that we grow up togerther . And yeah… you still tease me for being cringe. But see? I’m still here writing this 😌
+
+Boards are close. Pressure is real. We both know this phase matters. This isn’t about “after exams everything becomes perfect.” Life won’t suddenly remove tension. But one thing I’m sure about — we’re not running from pressure. We’re just learning how to handle it better.
+
+If sometimes you keep distance to focus… I understand. If sometimes I act weird… I’m still learning too. We don’t have to be perfect right now. We just have to grow.
+
+And after boards. Just one simple thing — Let’s talk about everything  Not to escape life. But to enjoy it properly.
+
+Small task for you 😌
+After exams, tell me your for how i entered ur life till now That’s all I want.
+
+— Your, “cringe" but consnsistant persoon
+                </div>
+            </div>
+            <button class="btn" onclick="next('p-tease')">I read it... ❤️</button>
+        </div>
+
+        <div class="page" id="p-tease">
+            <img src="gifs/bear-entry.gif" class="bear-gif">
+            <p>You say 'sorry' and 'thank you' so politely...</p>
+            <p>But you don't know what that does to me.(anooyes me 🤣)</p>
+            <button class="btn" onclick="next('p-val')">Show me 👀</button>
+        </div>
+
+        <div class="page" id="p-val">
+            <img src="gifs/bear-entry.gif" class="bear-gif">
+            <h1 id="question-text">Will you be my Valentine?</h1>
+            <div style="display:flex; justify-content:center; align-items:center; min-height:200px; width:100%; position:relative;">
+                <button class="btn" id="yesBtn" onclick="next('p-hug')">❤️ YES</button>
+                <button class="btn" id="noBtn" onclick="handleNo()">😶 NO</button>
+            </div>
+        </div>
+
+        <div class="page" id="p-hug">
+            <img src="gifs/bear-hug.gif" class="bear-gif">
+            <h1>lachu Virtual Hug Unlocked! 🤗</h1>
+            <button class="btn" onclick="next('p-success')">Next ❤️</button>
+        </div>
+
+        <div class="page" id="p-success">
+            <img src="gifs/bear-celebrate.gif" class="bear-gif">
+            <h1>Best Decision Ever! 🥰</h1>
+            <button class="btn" onclick="finish('Ice Cream Date 🍦')">Ice cream date</button>
+            <button class="btn" onclick="finish('Park Outing 🌳')">Park Outing</button>
+            <button class="btn" onclick="finish('Nowhere (Just Us) 🏠')">Nowhere</button>
+        </div>
+
+        <div class="page" id="p-final">
+            <img src="gifs/bear-celebrate.gif" class="bear-gif">
+            <h1>It's a Date! 🔒</h1>
+            <p>Our Plan: <br><span id="final-choice" style="color:var(--dark-pink); font-size:1.5rem; font-weight:bold;"></span></p>
+            <p><b>Screenshot this and send it to Athul!</b></p>
+        </div>
+    </div>
+
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PASTEYOURID');
+        // --- IRREGULAR HEARTS ---
+        function spawnHeart() {
+            const h = document.createElement('div');
+            h.className = 'heart'; h.innerHTML = '❤️';
+            const size = Math.random() * 35 + 20;
+            h.style.setProperty('--s', size / 20);
+            h.style.left = Math.random() * 90 + 'vw';
+            h.style.fontSize = size + 'px';
+            h.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.getElementById('heart-container').appendChild(h);
+            setTimeout(() => h.remove(), 7000);
+        }
+        setInterval(spawnHeart, 400);
+
+        function next(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        // --- BEATING LOGIC ---
+        let hits = 0;
+        function beat(e) {
+            hits++;
+            document.getElementById('hit-count').innerText = `Hits: ${hits}`;
+            const ouch = document.createElement('div');
+            ouch.style.position = 'fixed'; ouch.style.left = e.clientX + 'px'; ouch.style.top = e.clientY + 'px';
+            ouch.style.color = 'red'; ouch.style.fontWeight = 'bold'; ouch.innerText = 'OUCH!';
+            ouch.style.zIndex = '1000'; ouch.style.pointerEvents = 'none';
+            document.body.appendChild(ouch);
+            setTimeout(() => ouch.remove(), 500);
+            if(hits >= 1) document.getElementById('cont-angry').style.display = 'block';
+        }
+
+        // --- NO BUTTON LOGIC ---
+        let noClicks = 0;
+        const noTexts = ["Are you sure?", "Really?", "Think again!", "Di, please?", "You're breaking my heart!", "Wait, NO!"];
+
+        function handleNo() {
+            noClicks++;
+            const noBtn = document.getElementById('noBtn');
+            const yesBtn = document.getElementById('yesBtn');
+
+            // Show Text Message where No was clicked
+            const rect = noBtn.getBoundingClientRect();
+            const msg = document.createElement('div');
+            msg.className = 'no-msg';
+            msg.innerText = noTexts[(noClicks - 1) % noTexts.length];
+            msg.style.left = rect.left + 'px';
+            msg.style.top = rect.top + 'px';
+            document.body.appendChild(msg);
+
+            if (noClicks >= 6) {
+                noBtn.style.display = 'none';
+                yesBtn.style.position = 'fixed';
+                yesBtn.style.left = '0'; yesBtn.style.top = '0';
+                yesBtn.style.width = '100vw'; yesBtn.style.height = '100vh';
+                yesBtn.style.borderRadius = '0';
+                yesBtn.style.fontSize = '3rem';
+                yesBtn.innerText = "YES! ❤️";
+                return;
+            }
+
+            // Move No Button (Strictly inside screen)
+            const padding = 60;
+            const newX = Math.random() * (window.innerWidth - noBtn.offsetWidth - padding) + padding/2;
+            const newY = Math.random() * (window.innerHeight - noBtn.offsetHeight - padding) + padding/2;
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+
+            // Grow Yes Button
+            let scale = 1 + (noClicks * 0.8);
+            yesBtn.style.transform = `scale(${scale})`;
+        }
+
+        function finish(val) {
+            document.getElementById('final-choice').innerText = val;
+            next('p-final');
+        }
     </script>
+</body>
 
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --dark-pink: #cc0066;
-            --soft-brown: #5c3a3a;
-            --bg-gradient: linear-gradient(180deg, #ffd6e8 0%, #ffb3d9 50%, #ff99cc 100%);
-        }
-
-        body, html {
-            margin: 0; padding: 0; width: 100%; height: 100%;
-            font-family: 'Fredoka', sans-serif;
-            background: var(--bg-gradient);
-            overflow: hidden;
-            display: flex; justify-content: center; align-items: center;
-            touch-action: manipulation;
-        }
-
-        #heart-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .heart { position: absolute; color: white; opacity: 0.5; animation: irregularFloat linear forwards; }
-        
-        @keyframes irregularFloat {
-            0% { transform: translateY(110vh) translateX(0) scale(var(--s)) rotate(0deg); opacity: 0; }
-            50% { transform: translateY(50vh) translateX(-20px) scale(var(--s)) rotate(-15deg); opacity: 0.7; }
-            100% { transform: translateY(-15vh) translateX(20px) scale(var(--s)) rotate(360deg); opacity: 0; }
-        }
-
-        .container { position: relative; z-index: 10; text-align: center; width: 95%; max-width: 450px; }
-        .page { display: none; flex-direction: column; align-items: center; animation: fadeIn 0.4s forwards; }
-        .page.active { display: flex; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-
-        h1 { color: var(--dark-pink); font-size: 1.8rem; margin: 10px 0; z-index: 5; }
-        .big-msg { font-size: 2.2rem; font-weight: 600; color: var(--dark-pink); line-height: 1.2; }
-
-        .btn {
-            background: white; border: none; color: var(--dark-pink);
-            padding: 12px 25px; font-size: 1rem; border-radius: 50px;
-            cursor: pointer; font-weight: 600; margin: 10px;
-            box-shadow: 0 4px 15px rgba(204, 0, 102, 0.2); transition: 0.2s;
-        }
-        
-        #yesBtn { 
-            background: var(--dark-pink); color: white; 
-            z-index: 100; position: relative;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), width 0.3s, height 0.3s;
-        }
-
-        .bear-gif { width: 180px; height: auto; border-radius: 15px; margin-bottom: 10px; z-index: 5; }
-
-        .no-msg {
-            position: fixed; color: #ff3366; font-weight: bold; font-size: 0.9rem;
-            background: white; padding: 5px 12px; border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            animation: fadeOut 1.5s forwards; z-index: 150; pointer-events: none;
-        }
-        @keyframes fadeOut { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(0.8) translateY(-20px); } }
-
-        .paper {
-            background: #fffef0; padding: 20px; border-radius: 2px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 90%;
-            max-height: 50vh; overflow-y: auto; text-align: left;
-            border-left: 2px solid #ffadad;
-        }
-        .letter-text { font-family: 'Poppins', sans-serif; font-size: 0.85rem; color: #444; line-height: 1.6; white-space: pre-line; }
-    </style>
-</head>
-<body>
-    <!-- rest of your file stays EXACTLY the same -->
-
+</html>
